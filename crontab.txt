@@ -1,0 +1,2 @@
+
+0 7 * * * /home/jacob/Desktop/projects/project_automation/ProjectAutomation/send_email.sh >> /home/jacob/Desktop/projects/project_automation/log.txt 2>&1

@@ -7,8 +7,8 @@ import os
 import sys
 
 sender_email = "jgrimes112003@gmail.com"
-# receiving_emails = ["ashlyc0617@gmail.com", "jagprg@gmail.com", "jagredskin@yahoo.com", "megan92006@icloud.com", "jgrimes112003@gmail.com"]
-receiving_emails = ["jgrimes112003@gmail.com"]
+receiving_emails = ["ashlyc0617@gmail.com", "jagprg@gmail.com", "jagredskin@yahoo.com", "megan92006@icloud.com", "jgrimes112003@gmail.com"]
+
 def prepare_email(subject, body):
   msg = """From: %s
 To: %s
