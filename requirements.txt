@@ -1,0 +1,2 @@
+-r weather_project/requirements.txt
+python-dotenv
