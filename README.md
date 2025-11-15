@@ -1,2 +1,5 @@
-# DailyWeather
-A Python project using a RaspberryPi to send automatic daily emails, updating users on the weather for the day.
+# ProjectAutomation
+## A Python project using a RaspberryPi to send automatic daily emails, updating specified emails on: 
+* The weather for the day
+* Daily Affirmations
+* Daily Bible Verses

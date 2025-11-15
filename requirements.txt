@@ -1,2 +1,3 @@
 -r weather_project/requirements.txt
+-r affirmations_project/requirements.txt
 python-dotenv
