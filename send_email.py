@@ -1,4 +1,5 @@
 import smtplib
+from email.message import EmailMessage
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -7,15 +8,18 @@ import os
 import sys
 
 sender_email = "jgrimes112003@gmail.com"
-# receiving_emails = ["ashlyc0617@gmail.com", "jagprg@gmail.com", "jagredskin@yahoo.com", "megan92006@icloud.com", "jgrimes112003@gmail.com"]
-receiving_emails = ["ashlyc0617@gmail.com", "jagprg@gmail.com", "jgrimes112003@gmail.com"]
-# receiving_emails = ["jgrimes112003@gmail.com"]
-def prepare_email(subject, body):
-  msg = """From: %s
-To: %s
-Subject: %s
 
-%s""" % (sender_email, ", ".join(receiving_emails), subject, body)
+receiving_emails = ["jgrimes112003@gmail.com"]
+receiving_emails_bcc = ["ashlyc0617@gmail.com", "jagprg@gmail.com", "jagredskin@yahoo.com", "megan92006@icloud.com"]
+def prepare_email(subject, body):
+  msg = EmailMessage()
+
+  msg.set_content(body)
+  msg['Subject'] = subject
+  msg['From'] = sender_email
+  msg['To'] = receiving_emails
+  msg['Bcc'] = receiving_emails_bcc
+
   return msg
 
 def send_email(msg=""):
@@ -29,15 +33,14 @@ def send_email(msg=""):
   
     server.login(sender_email, sender_password)
   
-    server.sendmail(from_addr=sender_email, to_addrs=receiving_emails, msg=msg.encode("utf-8"))
+    server.send_message(msg)
     server.quit()
   
     print("Email send successfully")
-
   except Exception as e:
     print("Can't send email because of", e)
+    raise e
 
 if __name__ == "__main__":
   msg = prepare_email(sys.argv[1], " ".join(sys.argv[2:]))
-  # print(msg)
   send_email(msg)
